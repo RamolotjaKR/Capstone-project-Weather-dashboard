@@ -4,22 +4,22 @@ A modern, responsive weather dashboard built with React, Vite, and Tailwind CSS.
 
 ## Features
 
-✨ **Real-time Weather Data**: Fetch current weather conditions for any city
-🔍 **Smart Search**: Easy-to-use search functionality with validation
-📱 **Responsive Design**: Works seamlessly on desktop, tablet, and mobile devices
-🔄 **Auto-refresh**: Automatically updates weather data every 5 minutes
-🎨 **Beautiful UI**: Modern glassmorphism design with smooth animations
-⚡ **Fast Performance**: Built with Vite for lightning-fast development and builds
-🛡️ **Error Handling**: Comprehensive error handling with user-friendly messages
+**Real-time Weather Data**: Fetch current weather conditions for any city 
+**Smart Search**: Easy-to-use search functionality with validation
+**Responsive Design**: Works seamlessly on desktop, tablet, and mobile devices
+**Auto-refresh**: Automatically updates weather data every 5 minutes
+**Beautiful UI**: Modern glassmorphism design with smooth animations 
+**Fast Performance**: Built with Vite for lightning-fast development and builds
+**Error Handling**: Comprehensive error handling with user-friendly messages
 
 ## Weather Information Displayed
 
-- 🌡️ Current temperature (Celsius)
-- 🤔 "Feels like" temperature
-- 💧 Humidity percentage
-- 💨 Wind speed
-- ☁️ Weather condition with icon
-- 📍 City and country
+-  Current temperature (Celsius)
+-  "Feels like" temperature
+-  Humidity percentage
+-  Wind speed
+-  Weather condition with icon
+-  City and country
 
 ## Prerequisites
 
@@ -243,4 +243,5 @@ For issues and questions:
 
 ---
 
-**Happy Weather Tracking! ☀️🌧️❄️**
+**Happy Weather Tracking! **
+
