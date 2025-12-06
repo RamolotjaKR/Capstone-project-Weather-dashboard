@@ -1,4 +1,4 @@
-# Weather Dashboard 🌤️
+# Weather Dashboard 
 
 A modern, responsive weather dashboard built with React, Vite, and Tailwind CSS. Get real-time weather information for any city worldwide using the OpenWeatherMap API.
 
@@ -244,4 +244,5 @@ For issues and questions:
 ---
 
 **Happy Weather Tracking! **
+
 
