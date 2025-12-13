@@ -4,13 +4,14 @@ import { getWeatherIconUrl } from '../services/weatherApi';
 const WeatherCard = ({ weatherData }) => {
   if (!weatherData) {
     return (
-      <div className="w-full max-w-2xl mx-auto text-center text-white">
-        <div className="bg-white/10 backdrop-blur-md rounded-2xl p-12 shadow-2xl">
+      <div className="w-full max-w-2xl mx-auto text-center text-white px-4 sm:px-0">
+        <div className="bg-white/10 backdrop-blur-md rounded-2xl p-8 sm:p-12 shadow-2xl animate-fadeIn">
           <svg
-            className="w-24 h-24 mx-auto mb-4 opacity-50"
+            className="w-20 h-20 sm:w-24 sm:h-24 mx-auto mb-4 opacity-50 animate-pulse-soft"
             fill="none"
             stroke="currentColor"
             viewBox="0 0 24 24"
+            aria-hidden="true"
           >
             <path
               strokeLinecap="round"
@@ -19,8 +20,8 @@ const WeatherCard = ({ weatherData }) => {
               d="M3 15a4 4 0 004 4h9a5 5 0 10-.1-9.999 5.002 5.002 0 10-9.78 2.096A4.001 4.001 0 003 15z"
             />
           </svg>
-          <h2 className="text-2xl font-semibold mb-2">Welcome to Weather Dashboard</h2>
-          <p className="text-lg opacity-80">
+          <h2 className="text-xl sm:text-2xl font-semibold mb-2">Welcome to Weather Dashboard</h2>
+          <p className="text-base sm:text-lg opacity-80">
             Search for a city to see current weather conditions
           </p>
         </div>
@@ -41,14 +42,14 @@ const WeatherCard = ({ weatherData }) => {
   } = weatherData;
 
   return (
-    <div className="w-full max-w-2xl mx-auto animate-fadeIn">
-      <div className="bg-white/10 backdrop-blur-md rounded-2xl p-8 shadow-2xl border border-white/20">
+    <div className="w-full max-w-2xl mx-auto animate-fadeIn px-4 sm:px-0">
+      <div className="bg-white/10 backdrop-blur-md rounded-2xl p-6 sm:p-8 shadow-2xl border border-white/20">
         {/* Header */}
         <div className="text-center mb-6">
-          <h2 className="text-4xl font-bold text-white mb-2">
+          <h2 className="text-2xl sm:text-3xl md:text-4xl font-bold text-white mb-2 break-words">
             {city}, {country}
           </h2>
-          <p className="text-xl text-white/80 capitalize">{description}</p>
+          <p className="text-lg sm:text-xl text-white/80 capitalize">{description}</p>
         </div>
 
         {/* Main Weather Display */}
@@ -57,30 +58,31 @@ const WeatherCard = ({ weatherData }) => {
           <div className="flex items-center mb-6 md:mb-0">
             <img
               src={getWeatherIconUrl(icon)}
-              alt={main}
-              className="w-32 h-32"
+              alt={`${main} weather icon`}
+              className="w-24 h-24 sm:w-32 sm:h-32"
+              loading="lazy"
             />
             <div className="text-center md:text-left">
-              <div className="text-7xl font-bold text-white">
+              <div className="text-5xl sm:text-6xl md:text-7xl font-bold text-white">
                 {temperature}°
               </div>
-              <div className="text-xl text-white/70">
+              <div className="text-base sm:text-lg md:text-xl text-white/70">
                 Feels like {feelsLike}°C
               </div>
             </div>
           </div>
         </div>
 
-        {/* Weather Details Grid */}
-        <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
+        {/* Weather Details Grid */}3 sm:gap-4">
           {/* Humidity */}
-          <div className="bg-white/10 backdrop-blur-sm rounded-xl p-6 flex items-center">
-            <div className="bg-blue-500/30 rounded-full p-3 mr-4">
+          <div className="bg-white/10 backdrop-blur-sm rounded-xl p-4 sm:p-6 flex items-center touch-manipulation">
+            <div className="bg-blue-500/30 rounded-full p-2 sm:p-3 mr-3 sm:mr-4 flex-shrink-0">
               <svg
-                className="w-8 h-8 text-white"
+                className="w-6 h-6 sm:w-8 sm:h-8 text-white"
                 fill="none"
                 stroke="currentColor"
                 viewBox="0 0 24 24"
+                aria-hidden="true"
               >
                 <path
                   strokeLinecap="round"
@@ -90,22 +92,23 @@ const WeatherCard = ({ weatherData }) => {
                 />
               </svg>
             </div>
-            <div>
-              <div className="text-white/70 text-sm uppercase tracking-wide">
+            <div className="min-w-0">
+              <div className="text-white/70 text-xs sm:text-sm uppercase tracking-wide">
                 Humidity
               </div>
-              <div className="text-3xl font-bold text-white">{humidity}%</div>
+              <div className="text-2xl sm:text-3xl font-bold text-white">{humidity}%</div>
             </div>
           </div>
 
           {/* Wind Speed */}
-          <div className="bg-white/10 backdrop-blur-sm rounded-xl p-6 flex items-center">
-            <div className="bg-blue-500/30 rounded-full p-3 mr-4">
+          <div className="bg-white/10 backdrop-blur-sm rounded-xl p-4 sm:p-6 flex items-center touch-manipulation">
+            <div className="bg-blue-500/30 rounded-full p-2 sm:p-3 mr-3 sm:mr-4 flex-shrink-0">
               <svg
-                className="w-8 h-8 text-white"
+                className="w-6 h-6 sm:w-8 sm:h-8 text-white"
                 fill="none"
                 stroke="currentColor"
                 viewBox="0 0 24 24"
+                aria-hidden="true"
               >
                 <path
                   strokeLinecap="round"
@@ -115,11 +118,12 @@ const WeatherCard = ({ weatherData }) => {
                 />
               </svg>
             </div>
-            <div>
-              <div className="text-white/70 text-sm uppercase tracking-wide">
+            <div className="min-w-0">
+              <div className="text-white/70 text-xs sm:text-sm uppercase tracking-wide">
                 Wind Speed
               </div>
-              <div className="text-3xl font-bold text-white">
+              <div className="text-2xl sm:text-3xl font-bold text-white">
+                {windSpeed} <span className="text-lg sm:old text-white">
                 {windSpeed} <span className="text-xl">m/s</span>
               </div>
             </div>

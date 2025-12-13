@@ -11,20 +11,24 @@ const SearchBar = ({ onSearch, isLoading }) => {
   };
 
   return (
-    <form onSubmit={handleSubmit} className="w-full max-w-2xl mx-auto mb-8">
+    <form onSubmit={handleSubmit} className="w-full max-w-2xl mx-auto mb-8 animate-fadeIn">
       <div className="flex flex-col sm:flex-row gap-3">
         <input
           type="text"
           value={city}
           onChange={(e) => setCity(e.target.value)}
           placeholder="Enter city name (e.g., London, New York, Tokyo)"
-          className="flex-1 px-6 py-4 text-lg rounded-lg border-2 border-transparent focus:border-blue-500 focus:outline-none shadow-lg transition-all duration-200"
+          className="flex-1 px-6 py-4 text-base sm:text-lg rounded-lg border-2 border-transparent focus:border-blue-500 focus:outline-none shadow-lg transition-all duration-200 touch-manipulation"
           disabled={isLoading}
+          aria-label="City name search input"
+          autoComplete="off"
+          maxLength={85}
         />
         <button
           type="submit"
           disabled={isLoading || !city.trim()}
-          className="px-8 py-4 bg-blue-500 text-white font-semibold rounded-lg hover:bg-blue-600 disabled:bg-gray-400 disabled:cursor-not-allowed shadow-lg transition-all duration-200 transform hover:scale-105 active:scale-95"
+          className="px-8 py-4 bg-blue-500 text-white font-semibold rounded-lg hover:bg-blue-600 disabled:bg-gray-400 disabled:cursor-not-allowed shadow-lg transition-all duration-200 transform hover:scale-105 active:scale-95 touch-manipulation min-w-[140px]"
+          aria-label={isLoading ? 'Searching for weather' : 'Search for weather'}
         >
           {isLoading ? (
             <span className="flex items-center justify-center">

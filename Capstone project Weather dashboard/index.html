@@ -4,10 +4,89 @@
     <meta charset="UTF-8" />
     <link rel="icon" type="image/svg+xml" href="/vite.svg" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Weather Dashboard</title>
+    <meta name="description" content="Weather Dashboard - Get real-time weather information for any city worldwide" />
+    <title>Weather Dashboard - Real-Time Weather Information</title>
   </head>
   <body>
-    <div id="root"></div>
+    <!-- Main App Container -->
+    <div id="root">
+      <!-- React will render the app here, but here's the semantic HTML structure: -->
+      
+      <!-- Header Section -->
+      <header class="weather-header">
+        <h1>☁️ Weather Dashboard</h1>
+        <p>Get real-time weather information for any city worldwide</p>
+      </header>
+
+      <!-- Search Bar Section -->
+      <section class="search-section">
+        <form class="search-form">
+          <input 
+            type="text" 
+            placeholder="Enter city name (e.g., London, New York, Tokyo)"
+            class="search-input"
+            aria-label="City search input"
+          />
+          <button type="submit" class="search-button">Search</button>
+        </form>
+      </section>
+
+      <!-- Weather Card Section -->
+      <main class="weather-main">
+        <section class="weather-card">
+          <!-- City Information -->
+          <div class="city-header">
+            <h2 class="city-name">City Name</h2>
+            <p class="weather-description">Weather Description</p>
+          </div>
+
+          <!-- Main Weather Display -->
+          <div class="weather-display">
+            <div class="temperature-section">
+              <img src="" alt="Weather icon" class="weather-icon" />
+              <div class="temperature">
+                <span class="temp-value">--°</span>
+                <span class="feels-like">Feels like --°C</span>
+              </div>
+            </div>
+          </div>
+
+          <!-- Weather Details Grid -->
+          <div class="weather-details">
+            <!-- Humidity -->
+            <div class="detail-card">
+              <div class="detail-icon">💧</div>
+              <div class="detail-info">
+                <span class="detail-label">Humidity</span>
+                <span class="detail-value">--%</span>
+              </div>
+            </div>
+
+            <!-- Wind Speed -->
+            <div class="detail-card">
+              <div class="detail-icon">🌬️</div>
+              <div class="detail-info">
+                <span class="detail-label">Wind Speed</span>
+                <span class="detail-value">-- m/s</span>
+              </div>
+            </div>
+          </div>
+        </section>
+      </main>
+
+      <!-- Footer Section -->
+      <footer class="weather-footer">
+        <p>
+          Powered by 
+          <a href="https://openweathermap.org/" target="_blank" rel="noopener noreferrer">
+            OpenWeatherMap API
+          </a>
+        </p>
+        <p>Built with React, Vite, and Tailwind CSS</p>
+      </footer>
+    </div>
+
+    <!-- React Application Script -->
     <script type="module" src="/src/main.jsx"></script>
   </body>
 </html>

@@ -4,13 +4,14 @@ const ErrorMessage = ({ message, onDismiss }) => {
   if (!message) return null;
 
   return (
-    <div className="w-full max-w-2xl mx-auto mb-6 animate-fadeIn">
-      <div className="bg-red-100 border-l-4 border-red-500 text-red-700 p-4 rounded-lg shadow-lg flex items-start justify-between">
-        <div className="flex items-start">
+    <div className="w-full max-w-2xl mx-auto mb-6 animate-fadeIn px-4 sm:px-0">
+      <div className="bg-red-100 border-l-4 border-red-500 text-red-700 p-4 sm:p-6 rounded-lg shadow-lg flex items-start justify-between">
+        <div className="flex items-start flex-1 min-w-0">
           <svg
-            className="w-6 h-6 mr-3 flex-shrink-0"
+            className="w-6 h-6 mr-3 flex-shrink-0 mt-0.5"
             fill="currentColor"
             viewBox="0 0 20 20"
+            aria-hidden="true"
           >
             <path
               fillRule="evenodd"
@@ -18,16 +19,17 @@ const ErrorMessage = ({ message, onDismiss }) => {
               clipRule="evenodd"
             />
           </svg>
-          <div>
-            <p className="font-semibold">Error</p>
-            <p className="text-sm">{message}</p>
+          <div className="min-w-0 flex-1">
+            <p className="font-semibold text-base sm:text-lg">Error</p>
+            <p className="text-sm sm:text-base break-words">{message}</p>
           </div>
         </div>
         {onDismiss && (
           <button
             onClick={onDismiss}
-            className="text-red-700 hover:text-red-900 ml-4"
-            aria-label="Dismiss error"
+            className="text-red-700 hover:text-red-900 ml-4 flex-shrink-0 touch-manipulation p-1 rounded-full hover:bg-red-200 transition-colors"
+            aria-label="Dismiss error message"
+            type="button"
           >
             <svg className="w-5 h-5" fill="currentColor" viewBox="0 0 20 20">
               <path

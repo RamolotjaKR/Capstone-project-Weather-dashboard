@@ -2,6 +2,7 @@ import React, { useState, useEffect } from 'react';
 import SearchBar from './components/SearchBar';
 import WeatherCard from './components/WeatherCard';
 import ErrorMessage from './components/ErrorMessage';
+import LoadingSpinner from './components/LoadingSpinner';
 import { fetchWeatherData } from './services/weatherApi';
 
 function App() {
@@ -60,14 +61,14 @@ function App() {
   };
 
   return (
-    <div className="min-h-screen py-8 px-4">
-      <div className="container mx-auto">
+    <div className="min-h-screen py-6 sm:py-8 px-4">
+      <div className="container mx-auto max-w-7xl">
         {/* Header */}
-        <header className="text-center mb-8">
-          <h1 className="text-5xl md:text-6xl font-bold text-white mb-3 drop-shadow-lg">
+        <header className="text-center mb-6 sm:mb-8 animate-fadeIn">
+          <h1 className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-bold text-white mb-3 drop-shadow-lg">
             ☁️ Weather Dashboard
           </h1>
-          <p className="text-xl text-white/90 mb-6">
+          <p className="text-base sm:text-lg md:text-xl text-white/90 mb-6 px-4">
             Get real-time weather information for any city worldwide
           </p>
         </header>
@@ -78,13 +79,17 @@ function App() {
         {/* Error Message */}
         <ErrorMessage message={error} onDismiss={handleDismissError} />
 
+        {/* Loading State */}
+        {isLoading && <LoadingSpinner message="Fetching weather data..." />}
+
         {/* Control Buttons */}
-        {weatherData && (
-          <div className="flex flex-wrap justify-center gap-4 mb-6">
+        {weatherData && !isLoading && (
+          <div className="flex flex-wrap justify-center gap-3 sm:gap-4 mb-6 px-4 animate-slideIn">
             <button
               onClick={handleRefresh}
               disabled={isLoading}
-              className="px-6 py-3 bg-white/20 backdrop-blur-md text-white font-semibold rounded-lg hover:bg-white/30 disabled:bg-gray-400 disabled:cursor-not-allowed shadow-lg transition-all duration-200 flex items-center gap-2"
+              className="px-4 sm:px-6 py-2 sm:py-3 bg-white/20 backdrop-blur-md text-white text-sm sm:text-base font-semibold rounded-lg hover:bg-white/30 disabled:bg-gray-400 disabled:cursor-not-allowed shadow-lg transition-all duration-200 flex items-center gap-2 touch-manipulation"
+              aria-label="Refresh weather data"
             >
               <svg
                 className={`w-5 h-5 ${isLoading ? 'animate-spin' : ''}`}
@@ -103,11 +108,12 @@ function App() {
             </button>
 
             <button
-              onClick={toggleAutoRefresh}
-              className={`px-6 py-3 font-semibold rounded-lg shadow-lg transition-all duration-200 flex items-center gap-2 ${
+              onClick={toggle4 sm:px-6 py-2 sm:py-3 text-sm sm:text-base font-semibold rounded-lg shadow-lg transition-all duration-200 flex items-center gap-2 touch-manipulation ${
                 autoRefresh
                   ? 'bg-green-500 text-white hover:bg-green-600'
                   : 'bg-white/20 backdrop-blur-md text-white hover:bg-white/30'
+              }`}
+              aria-label={`Auto-refresh is ${autoRefresh ? 'enabled' : 'disabled'}. Click to ${autoRefresh ? 'disable' : 'enable'    : 'bg-white/20 backdrop-blur-md text-white hover:bg-white/30'
               }`}
             >
               <svg className="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
@@ -124,24 +130,27 @@ function App() {
         )}
 
         {/* Weather Card */}
-        <WeatherCard weatherData={weatherData} />
+        {!isLoading && <WeatherCard weatherData={weatherData} />}
 
         {/* Last Updated Info */}
-        {weatherData && (
-          <div className="text-center mt-6 text-white/70 text-sm">
+        {weatherData && !isLoading && (xs sm:text-sm px-4">
             Last updated: {new Date().toLocaleTimeString()}
-            {autoRefresh && ' • Auto-refreshes every 5 minutes'}
+            {autoRefresh && (
+              <span className="hidden sm:inline"> • Auto-refreshes every 5 minutes</span>
+            )}
           </div>
         )}
 
         {/* Footer */}
-        <footer className="text-center mt-12 text-white/70 text-sm">
+        <footer className="text-center mt-8 sm:mt-12 text-white/70 text-xs sm:text-sm px-4">
           <p>
             Powered by{' '}
             <a
               href="https://openweathermap.org/"
               target="_blank"
               rel="noopener noreferrer"
+              className="underline hover:text-white transition-colors"
+              aria-label="Visit OpenWeatherMap webs
               className="underline hover:text-white"
             >
               OpenWeatherMap API
