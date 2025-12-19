@@ -108,13 +108,13 @@ function App() {
             </button>
 
             <button
-              onClick={toggle4 sm:px-6 py-2 sm:py-3 text-sm sm:text-base font-semibold rounded-lg shadow-lg transition-all duration-200 flex items-center gap-2 touch-manipulation ${
+              onClick={toggleAutoRefresh}
+              className={`px-4 sm:px-6 py-2 sm:py-3 text-sm sm:text-base font-semibold rounded-lg shadow-lg transition-all duration-200 flex items-center gap-2 touch-manipulation ${
                 autoRefresh
                   ? 'bg-green-500 text-white hover:bg-green-600'
                   : 'bg-white/20 backdrop-blur-md text-white hover:bg-white/30'
               }`}
-              aria-label={`Auto-refresh is ${autoRefresh ? 'enabled' : 'disabled'}. Click to ${autoRefresh ? 'disable' : 'enable'    : 'bg-white/20 backdrop-blur-md text-white hover:bg-white/30'
-              }`}
+              aria-label={`Auto-refresh is ${autoRefresh ? 'enabled' : 'disabled'}. Click to ${autoRefresh ? 'disable' : 'enable'}`}
             >
               <svg className="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                 <path
@@ -133,7 +133,8 @@ function App() {
         {!isLoading && <WeatherCard weatherData={weatherData} />}
 
         {/* Last Updated Info */}
-        {weatherData && !isLoading && (xs sm:text-sm px-4">
+        {weatherData && !isLoading && (
+          <div className="text-center mt-6 text-white/70 text-xs sm:text-sm px-4">
             Last updated: {new Date().toLocaleTimeString()}
             {autoRefresh && (
               <span className="hidden sm:inline"> • Auto-refreshes every 5 minutes</span>
@@ -150,8 +151,7 @@ function App() {
               target="_blank"
               rel="noopener noreferrer"
               className="underline hover:text-white transition-colors"
-              aria-label="Visit OpenWeatherMap webs
-              className="underline hover:text-white"
+              aria-label="Visit OpenWeatherMap website"
             >
               OpenWeatherMap API
             </a>

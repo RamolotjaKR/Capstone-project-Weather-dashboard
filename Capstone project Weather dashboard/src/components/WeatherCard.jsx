@@ -73,7 +73,8 @@ const WeatherCard = ({ weatherData }) => {
           </div>
         </div>
 
-        {/* Weather Details Grid */}3 sm:gap-4">
+        {/* Weather Details Grid */}
+        <div className="grid grid-cols-1 sm:grid-cols-2 gap-3 sm:gap-4">
           {/* Humidity */}
           <div className="bg-white/10 backdrop-blur-sm rounded-xl p-4 sm:p-6 flex items-center touch-manipulation">
             <div className="bg-blue-500/30 rounded-full p-2 sm:p-3 mr-3 sm:mr-4 flex-shrink-0">
@@ -123,8 +124,7 @@ const WeatherCard = ({ weatherData }) => {
                 Wind Speed
               </div>
               <div className="text-2xl sm:text-3xl font-bold text-white">
-                {windSpeed} <span className="text-lg sm:old text-white">
-                {windSpeed} <span className="text-xl">m/s</span>
+                {windSpeed} <span className="text-lg sm:text-xl">m/s</span>
               </div>
             </div>
           </div>
